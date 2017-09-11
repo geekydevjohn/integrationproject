@@ -11,8 +11,6 @@ import javax.persistence.Table;
 
 import com.trumpia.model.UserEntity;
 
-
-
 @Entity
 @Table(name="e_mapping_info")
 public class MappingEntity {
@@ -24,10 +22,14 @@ public class MappingEntity {
 	@Column
 	private String trumpiaFieldName;
 	@Column
-	private String dynamicFieldName;
+	private String targetFieldName;
+	@Column
+	private String targetCompany;
+	@Column(nullable = true)
+	private String customDataId;
 	@ManyToOne
 	@JoinColumn(name="user_id")
-	private UserEntity userEntity;
+	private UserEntity userId;
 
 	public MappingEntity() {
 
@@ -36,39 +38,50 @@ public class MappingEntity {
 		return id;
 	}
 	public UserEntity getUserId() {
-		return userEntity;
+		return userId;
 	}
 	public String getTrumpiaFieldName() {
 		return trumpiaFieldName;
 	}
-	public String getDynamicFieldName() {
-		return dynamicFieldName;
+	public String getTargetFieldName() {
+		return targetFieldName;
+	}
+	public String getTargetCompany() {
+		return targetCompany;
 	}
 	public String getDescription() {
 		return description;
 	}
-
-	public void setDescription(String description) {
-		this.description = description;
+	public String getCustomDataId() {
+		return customDataId;
 	}
-
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public void setUserId(UserEntity userEntity) {
-		this.userEntity = userEntity;
+	public void setUserId(UserEntity userId) {
+		this.userId = userId;
 	}
 	public void setTrumpiaFieldName(String trumpiaFieldName) {
 		this.trumpiaFieldName = trumpiaFieldName;
 	}
-	public void setDynamicFieldName(String dynamicFieldName) {
-		this.dynamicFieldName = dynamicFieldName;
+	public void setTargetFieldName(String targetFieldName) {
+		this.targetFieldName = targetFieldName;
+	}
+	public void setTargetCompany(String targetCompany) {
+		this.targetCompany = targetCompany;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	public void setCustomDataId(String customDataId) {
+		this.customDataId = customDataId;
 	}
 
 	@Override
 	public String toString() {
-		return "MappingEntity [id=" + id + "userid = "+ userEntity +", trumpiaFieldName=" + trumpiaFieldName
-				+ ", dynamicFieldName=" + dynamicFieldName + "]";
+		return "MappingEntity [id=" + id + ", description=" + description + ", trumpiaFieldName=" + trumpiaFieldName
+				+ ", targetFieldName=" + targetFieldName + ", targetCompany=" + targetCompany + ", customDataId="
+				+ customDataId + ", userId=" + userId + "]";
 	}
 
 

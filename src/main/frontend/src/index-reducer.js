@@ -4,6 +4,9 @@ import client from './client/reducer';
 import signup from './signup/reducer';
 import login from './login/reducer';
 import widgets from './widgets/reducer';
+import topbar from './topbar/reducer';
+import modal from './ui/modal/reducer';
+import trumpiaRegisterModal from './trumpia/registerModal/reducer';
 
 
 const IndexReducer = combineReducers({
@@ -12,6 +15,9 @@ const IndexReducer = combineReducers({
   login,
   widgets,
   client,
+  topbar,
+  trumpiaRegisterModal,
+  modal,
 });
 
 export default IndexReducer;
